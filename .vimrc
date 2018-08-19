@@ -6,6 +6,7 @@ set autoread
 set hidden
 set showcmd
 set number
+set autoindent
 set smartindent
 set showmatch
 set expandtab
