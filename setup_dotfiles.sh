@@ -6,6 +6,8 @@ do
     if [ -e ~/${x} ]; then
         if [ -L ~/${x} ]; then
             mv ~/${x} ~/${x}_old 
+        elif [ -d ~/${x} ]; then
+            mv ~/${x} ~/${x}_old
         else
             rm ~/${x}
         fi
