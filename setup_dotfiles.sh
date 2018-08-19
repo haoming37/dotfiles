@@ -13,7 +13,7 @@ do
     ln -s $script_dir/${x} ~/${x}
 done
 #install dein
-echo "export VIMRUNTIME=$script_dir/vim_runtime" >>~/.bashrc$
+echo "export VIMRUNTIME=$script_dir/vim_runtime" >>~/.bashrc
 export VIMRUNTIME=$script_dir/vim_runtime
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
