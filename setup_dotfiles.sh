@@ -1,4 +1,5 @@
 #!/bin/bash
+#set symbolic link
 script_dir=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 for x in $(ls -a|grep -i "^\.[a-z]"|grep -v .git)
 do
@@ -11,3 +12,7 @@ do
     fi
     ln -s $script_dir/${x} ~/${x}
 done
+#install dein
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.cache/dein
+rm installer.sh
