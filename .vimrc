@@ -23,7 +23,6 @@ map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
-autocmd VimEnter * NERDTree
 
 if &compatible
  set nocompatible
@@ -40,6 +39,7 @@ if dein#load_state('~/.cache/dein')
  call dein#add('Shougo/neocomplete.vim')
  call dein#add('Shougo/neomru.vim')
  call dein#add('Shougo/neosnippet')
+ call dein#add('Shougo/neosnippet-snippets')
  call dein#add('scrooloose/nerdtree')
  call dein#add('tpope/vim-fugitive')
  if !has('nvim')
@@ -57,3 +57,5 @@ syntax enable
 if dein#check_install()
   call dein#install()
 endif
+
+autocmd VimEnter * NERDTree
