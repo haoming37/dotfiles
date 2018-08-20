@@ -23,6 +23,10 @@ map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
+noremap <C-a>n :tabNext<CR>
+noremap <C-a>p :tabprevious<CR>
+noremap <C-a>t :tabnew<CR>
+noremap <C-a>x :tabclose<CR>
 
 if &compatible
  set nocompatible
