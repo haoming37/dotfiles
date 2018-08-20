@@ -23,6 +23,7 @@ map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
+autocmd VimEnter * NERDTree
 
 if &compatible
  set nocompatible
