@@ -25,8 +25,9 @@ noremap <C-j> <esc>
 noremap! <C-j> <esc>
 noremap <C-a>n :tabNext<CR>
 noremap <C-a>p :tabprevious<CR>
-noremap <C-a>t :tabnew<CR>
+noremap <C-a>t :tabnew<CR>:NERDTree<CR>
 noremap <C-a>x :tabclose<CR>
+noremap <C-a>v "0p
 
 if &compatible
  set nocompatible
