@@ -4,4 +4,4 @@ cd vim
 make
 cp src/vim ../bin/
 rm -rf ../vim_runtime
-cp -R vim/runtime ../vim_runtime
+cp -R runtime ../vim_runtime
