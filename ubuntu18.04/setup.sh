@@ -19,3 +19,5 @@ sudo apt-get install docker-ce
 if cat /etc/group |grep docker ; then
     sudo usermod -aG docker ${USER}
 fi
+
+sudo timedatectl set-local-rtc 1
