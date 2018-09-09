@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt-get update
 sudo apt-get install -y \
-build-essentials \
+build-essential \
 libncurses5-dev \
 net-tools \
 git \
