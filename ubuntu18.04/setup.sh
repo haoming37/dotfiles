@@ -16,7 +16,7 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 sudo apt-get update
-sudo apt-get install docker-ce
+sudo apt-get install -y docker-ce
 if cat /etc/group |grep docker ; then
     sudo usermod -aG docker ${USER}
 fi
