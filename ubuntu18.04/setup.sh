@@ -6,6 +6,7 @@ git \
 curl \
 apt-transport-https \
 ca-certificates \
+fcitx-mozc \
 software-properties-common
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -21,3 +22,4 @@ if cat /etc/group |grep docker ; then
 fi
 
 sudo timedatectl set-local-rtc 1
+sudo dpkg-reconfigure keyboard-configuration
