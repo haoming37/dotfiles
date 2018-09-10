@@ -23,6 +23,10 @@ if cat /etc/group |grep docker ; then
     sudo usermod -aG docker ${USER}
 fi
 
+sudo add-apt-repository -y ppa:lintaro/mcomix
+sudo apt update
+sudo apt install -y mcomix unrar
+
 sudo timedatectl set-local-rtc 1
 sudo dpkg-reconfigure keyboard-configuration
 LANG=C xdg-user-dirs-gtk-update
