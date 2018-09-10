@@ -1,9 +1,9 @@
 curl -L -o PixelMplus-20130602.zip https://osdn.net/projects/mix-mplus-ipa/downloads/58930/PixelMplus-20130602.zip/ 
 unzip PixelMplus-20130602.zip
-mkdir ../.font
-mv PixelMplus-20130602/*.ttf ../.font
+mkdir ../.fonts
+mv PixelMplus-20130602/*.ttf ../.fonts
 rm -rf PixelMplus-20130602
 rm PixelMplus-20130602.zip
 cd ../
-ln -s $PWD/.font ~/.font
+ln -s $PWD/.fonts ~/.fonts
 fc-cache -fv
