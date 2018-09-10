@@ -25,3 +25,4 @@ fi
 
 sudo timedatectl set-local-rtc 1
 sudo dpkg-reconfigure keyboard-configuration
+LANG=C xdg-user-dirs-gtk-update
