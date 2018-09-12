@@ -20,10 +20,10 @@ RUN curl -O https://dl.google.com/android/repository/$SDK_FILENAME \
     && mkdir -p $ANDROID_SDK_ROOT \
     && unzip $SDK_FILENAME -d $ANDROID_SDK_ROOT \
     && rm $SDK_FILENAME
-RUN echo yes | sdkmanager --licenses \
-    && echo y | sdkmanager --install \
+RUN yes | sdkmanager --licenses 
+RUN echo y | sdkmanager --install \
     "system-images;android-26;google_apis;x86_64" \
     "platforms;android-26" \
-    "platform-tools" \
-    && avdmanager create avd -n nexus5x -k "system-images;android-26;google_apis;x86_64" -d 9
+    "platform-tools" 
+RUN avdmanager create avd -n nexus5x -k "system-images;android-26;google_apis;x86_64" -d 9
 
