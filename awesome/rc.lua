@@ -508,7 +508,8 @@ awful.rules.rules = {
         properties = {
             screen = 1,
             tag = "1",
-            maximized = true
+            maximized = true,
+            fullscreen = true
         }
     
     },
@@ -516,7 +517,8 @@ awful.rules.rules = {
         properties = { 
             screen = 2,
             tag = "1",
-            maximized = true
+            maximized = true,
+            fullscreen = true
         }
     },
 
