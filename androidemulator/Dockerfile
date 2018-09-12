@@ -4,7 +4,11 @@ ENV ANDROID_HOME=/opt/androidsdk
 ENV ANDROID_SDK_ROOT=/opt/androidsdk
 ENV PATH=$ANDROID_SDK_ROOT:$ANDROID_SDK_ROOT/bin:$PATH
 ENV SDK_FILENAME=sdk-tools-linux-4333796.zip
-RUN DEBIAN_FRONTEND=noninteractive;apt-get update && apt-get -y install -y \
+#RUN DEBIAN_FRONTEND=noninteractive;apt-get update && apt-get -y install -y \
+RUN apt-get update && apt-get -y install --no-install-recommends \
+    unzip \
+    curl \
+    openjdk-8-jdk \
     qemu-kvm \
     libvirt0 \
     libvirt-bin \
@@ -12,10 +16,10 @@ RUN DEBIAN_FRONTEND=noninteractive;apt-get update && apt-get -y install -y \
     bridge-utils \
     openjdk-8-jdk \
     && rm -rf /var/lib/apt/lists/*
-RUN curl -O https://dl.google.com/android/repository/$SDKFILENAME \
+RUN curl -O https://dl.google.com/android/repository/$SDK_FILENAME \
     && mkdir -p $ANDROID_SDK_ROOT \
     && unzip $SDK_FILENAME -d $ANDROID_SDK_ROOT \
-    && rm $SDKFILENAME
+    && rm $SDK_FILENAME
 RUN echo yes | sdkmanager --licenses \
     && echo y | sdkmanager --install \
     "system-images;android-26;google_apis;x86_64" \
