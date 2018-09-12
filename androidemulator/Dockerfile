@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 ENV ANDROID_HOME=/opt/androidsdk
 ENV ANDROID_SDK_ROOT=/opt/androidsdk
-ENV PATH=$ANDROID_SDK_ROOT:$ANDROID_SDK_ROOT/bin:$PATH
+ENV PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/tools/bin:$PATH
 ENV SDK_FILENAME=sdk-tools-linux-4333796.zip
 #RUN DEBIAN_FRONTEND=noninteractive;apt-get update && apt-get -y install -y \
 RUN apt-get update && apt-get -y install --no-install-recommends \
