@@ -28,6 +28,8 @@ noremap <C-a>p :tabprevious<CR>
 noremap <C-a>t :tabnew<CR>:NERDTree<CR>
 noremap <C-a>x :tabclose<CR>
 noremap <C-a>v "0p
+tnoremap <C-j> <C-\><C-n>
+tnoremap <esc> <C-\><C-n>
 
 if &compatible
  set nocompatible
@@ -47,10 +49,12 @@ if dein#load_state('~/.cache/dein')
  call dein#add('Shougo/neosnippet-snippets')
  call dein#add('scrooloose/nerdtree')
  call dein#add('tpope/vim-fugitive')
+ call dein#add('davidhalter/jedi-vim')
  if !has('nvim')
    call dein#add('roxma/nvim-yarp')
    call dein#add('roxma/vim-hug-neovim-rpc')
  endif
+ 
 
  call dein#end()
  call dein#save_state()
