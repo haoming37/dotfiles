@@ -49,12 +49,15 @@ if dein#load_state('~/.cache/dein')
  call dein#add('Shougo/neosnippet-snippets')
  call dein#add('scrooloose/nerdtree')
  call dein#add('tpope/vim-fugitive')
- call dein#add('davidhalter/jedi-vim')
- if !has('nvim')
+ if has('nvim')
    call dein#add('roxma/nvim-yarp')
    call dein#add('roxma/vim-hug-neovim-rpc')
  endif
- 
+ if has('python3')
+     call dein#add('davidhalter/jedi-vim')
+     call dein#add('ervandew/supertab')
+     let g:SuperTabContextDefaultCompletionType = "context"
+     let g:SuperTabDefaultCompletionType = "<c-n>"
 
  call dein#end()
  call dein#save_state()
