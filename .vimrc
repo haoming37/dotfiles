@@ -58,6 +58,7 @@ if dein#load_state('~/.cache/dein')
      call dein#add('ervandew/supertab')
      let g:SuperTabContextDefaultCompletionType = "context"
      let g:SuperTabDefaultCompletionType = "<c-n>"
+ endif
 
  call dein#end()
  call dein#save_state()
