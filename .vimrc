@@ -28,8 +28,6 @@ noremap <C-a>p :tabprevious<CR>
 noremap <C-a>t :tabnew<CR>:NERDTree<CR>
 noremap <C-a>x :tabclose<CR>
 noremap <C-a>v "0p
-tnoremap <C-j> <C-\><C-n>
-tnoremap <esc> <C-\><C-n>
 
 if &compatible
  set nocompatible
@@ -52,6 +50,8 @@ if dein#load_state('~/.cache/dein')
  if has('nvim')
    call dein#add('roxma/nvim-yarp')
    call dein#add('roxma/vim-hug-neovim-rpc')
+   tnoremap <silent> <C-j> <C-\><C-n>
+   tnoremap <silent> <esc> <C-\><C-n>
  endif
  if has('python3')
      call dein#add('davidhalter/jedi-vim')
@@ -72,3 +72,4 @@ if dein#check_install()
 endif
 
 autocmd VimEnter * NERDTree
+
