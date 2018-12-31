@@ -6,8 +6,8 @@ INSTALL_PATH=$HOME/bin/nvim
 #    curl -L -o $INSTALL_PATH https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 #    chmod +x $INSTALL_PATH
 #fi
-apt-add-repository -y ppa:neovim-ppa/stable
-apt-get update && apt-get install neovim
+sudo apt-add-repository -y ppa:neovim-ppa/stable
+sudo apt-get update && apt-get install neovim
 
 if ! cat $HOME/.bashrc|grep XDG_CONFIG_HOME >/dev/null;then
     echo "export XDG_CONFIG_HOME=$HOME/config" >>$HOME/.bashrc
@@ -22,4 +22,4 @@ if [ ! -e $HOME/.cache/dein/userconfig ]; then
     mkdir -p $HOME/.cache/dein/userconfig 
 fi
 
-cp .vimrc $XDG_CONFIG_HOME/nvim/init.vim
+ln -s ${PWD}/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
