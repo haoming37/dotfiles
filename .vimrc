@@ -23,11 +23,15 @@ map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
+noremap <C-a>m :tabnew %<CR>
 noremap <C-a>n :tabNext<CR>
 noremap <C-a>p :tabprevious<CR>
-noremap <C-a>t :tabnew<CR>:NERDTree<CR>
+noremap <C-a>t :tabnew<CR>
+noremap <C-a>f :NERDTreeToggle<CR>
 noremap <C-a>x :tabclose<CR>
 noremap <C-a>v "0p
+tnoremap <silent> <C-j> <C-\><C-n>
+tnoremap <silent> <esc> <C-\><C-n>
 
 if &compatible
  set nocompatible
@@ -36,40 +40,42 @@ endif
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.cache/dein')
- call dein#begin('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
+    call dein#add('~/.cache/dein')
+    call dein#add('Shougo/deoplete.nvim')
+    call dein#add('Shougo/unite.vim')
+    call dein#add('Shougo/neocomplete.vim')
+    call dein#add('Shougo/neomru.vim')
+    call dein#add('Shougo/neosnippet')
+    call dein#add('Shougo/neosnippet-snippets')
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('tpope/vim-fugitive')
+ 
+    if ! has('nvim')
+        call dein#add('roxma/nvim-yarp')
+        call dein#add('roxma/vim-hug-neovim-rpc')
+    else
+        autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
+        tnoremap <C-w>h <C-\><C-n><C-w>h
+        tnoremap <C-w>j <C-\><C-n><C-w>j
+        tnoremap <C-w>k <C-\><C-n><C-w>k
+        tnoremap <C-w>l <C-\><C-n><C-w>l
+    endif
 
- call dein#add('~/.cache/dein')
- call dein#add('Shougo/deoplete.nvim')
- call dein#add('Shougo/unite.vim')
- call dein#add('Shougo/neocomplete.vim')
- call dein#add('Shougo/neomru.vim')
- call dein#add('Shougo/neosnippet')
- call dein#add('Shougo/neosnippet-snippets')
- call dein#add('scrooloose/nerdtree')
- call dein#add('tpope/vim-fugitive')
- if has('nvim')
-   call dein#add('roxma/nvim-yarp')
-   call dein#add('roxma/vim-hug-neovim-rpc')
-   tnoremap <silent> <C-j> <C-\><C-n>
-   tnoremap <silent> <esc> <C-\><C-n>
- endif
- if has('python3')
-     call dein#add('davidhalter/jedi-vim')
-     call dein#add('ervandew/supertab')
-     let g:SuperTabContextDefaultCompletionType = "context"
-     let g:SuperTabDefaultCompletionType = "<c-n>"
- endif
+    if has('python3')
+        call dein#add('davidhalter/jedi-vim')
+        call dein#add('ervandew/supertab')
+        let g:SuperTabContextDefaultCompletionType = "context"
+        let g:SuperTabDefaultCompletionType = "<c-n>"
+    endif
 
- call dein#end()
- call dein#save_state()
+    call dein#end()
+    call dein#save_state()
 endif
 
 filetype plugin indent on
 syntax enable
 
 if dein#check_install()
-  call dein#install()
+    call dein#install()
 endif
-
-autocmd VimEnter * NERDTree
-
