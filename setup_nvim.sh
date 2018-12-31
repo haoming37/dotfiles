@@ -1,11 +1,13 @@
 #!/bin/bash
 INSTALL_PATH=$HOME/bin/nvim
 
-if [ ! -e $INSTALL_PATH ]; then
-    mkdir -p `dirname $INSTALL_PATH`
-    curl -L -o $INSTALL_PATH https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-    chmod +x $INSTALL_PATH
-fi
+#if [ ! -e $INSTALL_PATH ]; then
+#    mkdir -p `dirname $INSTALL_PATH`
+#    curl -L -o $INSTALL_PATH https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+#    chmod +x $INSTALL_PATH
+#fi
+apt-add-repository -y ppa:neovim-ppa/stable
+apt-get update && apt-get install neovim
 
 if ! cat $HOME/.bashrc|grep XDG_CONFIG_HOME >/dev/null;then
     echo "export XDG_CONFIG_HOME=$HOME/config" >>$HOME/.bashrc
