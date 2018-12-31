@@ -2,6 +2,7 @@
 INSTALL_PATH=$HOME/bin/nvim
 
 if [ ! -e $INSTALL_PATH ]; then
+    mkdir -p `dirname $INSTALL_PATH`
     curl -L -o $INSTALL_PATH https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
     chmod +x $INSTALL_PATH
 fi
@@ -15,8 +16,8 @@ if [ ! -e $XDG_CONFIG_HOME/nvim ]; then
     mkdir -p $XDG_CONFIG_HOME/nvim
 fi
 
-if [! -e $HOME/.cache/dein/userconfig ]; then
-    mkdir $HOME/.cache/dein/userconfig 
+if [ ! -e $HOME/.cache/dein/userconfig ]; then
+    mkdir -p $HOME/.cache/dein/userconfig 
 fi
 
 cp .vimrc $XDG_CONFIG_HOME/nvim/init.vim
