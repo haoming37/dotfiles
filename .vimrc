@@ -50,16 +50,20 @@ if dein#load_state('~/.cache/dein')
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('scrooloose/nerdtree')
     call dein#add('tpope/vim-fugitive')
- 
+
     if ! has('nvim')
         call dein#add('roxma/nvim-yarp')
         call dein#add('roxma/vim-hug-neovim-rpc')
     else
+        autocmd TermOpen * setlocal norelativenumber
+        autocmd TermOpen * setlocal nonumber
         autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
         tnoremap <C-w>h <C-\><C-n><C-w>h
         tnoremap <C-w>j <C-\><C-n><C-w>j
         tnoremap <C-w>k <C-\><C-n><C-w>k
         tnoremap <C-w>l <C-\><C-n><C-w>l
+        tnoremap <C-w>q <C-\><C-n><C-w>q
+        tnoremap <C-a>m <C-\><C-n>:tabnew %<CR>
     endif
 
     if has('python3')
