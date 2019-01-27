@@ -16,6 +16,8 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+set showtabline=2
+set cursorline
 map <C-g> :Gtags 
 map <C-h> :Gtags -f %<CR>
 map <C-j> :GtagsCursor<CR>
@@ -50,10 +52,13 @@ if dein#load_state('~/.cache/dein')
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('scrooloose/nerdtree')
     call dein#add('tpope/vim-fugitive')
-
+    call dein#add('vim-airline/vim-airline')
+    call dein#add('jdkanani/vim-material-theme')
     if ! has('nvim')
         call dein#add('roxma/nvim-yarp')
         call dein#add('roxma/vim-hug-neovim-rpc')
+        call dein#add('vim-airline/vim-airline-themes')
+        call dein#add('ryanoasis/vim-devicons')
     else
         autocmd TermOpen * setlocal norelativenumber
         autocmd TermOpen * setlocal nonumber
@@ -63,7 +68,11 @@ if dein#load_state('~/.cache/dein')
         tnoremap <C-w>k <C-\><C-n><C-w>k
         tnoremap <C-w>l <C-\><C-n><C-w>l
         tnoremap <C-w>q <C-\><C-n><C-w>q
-        tnoremap <C-a>m <C-\><C-n>:tabnew %<CR>
+        tnoremap <C-a>t <C-\><C-n>:tabnew %<CR>
+        tnoremap <C-a>n <C-\><C-n>:tabNext<CR>
+        tnoremap <C-a>p <C-\><C-n>:tabprevious<CR>
+        tnoremap <C-a>x <C-\><C-n>:tabclose<CR>
+        tnoremap <C-a>f <C-\><C-n>:NERDTreeToggle<CR>
     endif
 
     if has('python3')
@@ -75,11 +84,4 @@ if dein#load_state('~/.cache/dein')
 
     call dein#end()
     call dein#save_state()
-endif
-
-filetype plugin indent on
-syntax enable
-
-if dein#check_install()
-    call dein#install()
 endif
