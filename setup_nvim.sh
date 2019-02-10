@@ -23,9 +23,11 @@ if [ ! -e $HOME/.cache/dein/userconfig ]; then
 fi
 
 ln -s ${PWD}/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 #install dein
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.cache/dein
-rm installer.sh
-nvim -e +norm':call dein#install()' +q!
+#curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+#sh ./installer.sh ~/.cache/dein
+#rm installer.sh
+#nvim -e +norm':call dein#install()' +q!
