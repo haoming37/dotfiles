@@ -7,7 +7,7 @@
 #    chmod +x $INSTALL_PATH
 #fi
 sudo apt-add-repository -y ppa:neovim-ppa/stable
-sudo apt-get update && apt-get install neovim
+sudo apt-get update && sudo apt-get install neovim
 
 if ! cat $HOME/.bashrc|grep XDG_CONFIG_HOME >/dev/null;then
     echo "export XDG_CONFIG_HOME=$HOME/config" >>$HOME/.bashrc
