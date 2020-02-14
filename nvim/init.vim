@@ -12,6 +12,8 @@ set showmatch
 set expandtab
 set tabstop=4
 set shiftwidth=4
+set shiftround
+set colorcolumn=80
 set ignorecase
 set smartcase
 set incsearch
@@ -59,9 +61,17 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'jdkanani/vim-material-theme'
 Plug 'mhinz/neovim-remote'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
+"ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 autocmd TermOpen * setlocal norelativenumber
 autocmd TermOpen * setlocal nonumber
 autocmd WinEnter * if &buftype ==# 'terminal' | startinsert | endif
