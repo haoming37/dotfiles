@@ -12,6 +12,8 @@ set showmatch
 set expandtab
 set tabstop=4
 set shiftwidth=4
+set shiftround
+set colorcolumn=80
 set ignorecase
 set smartcase
 set incsearch
@@ -48,8 +50,9 @@ Plug 'prabirshrestha/vim-lsp'
 "Plug 'Shougo/deoplete.nvim' 
 "Plug 'Shougo/unite.vim'
 "Plug 'Shougo/neocomplete.vim'
+"Plug 'Shougo/neocomplcache.vim'
 "Plug 'Shougo/neomru.vim'
-"Plug 'Shougo/neosnippet'
+"Plug 'Shougo/neosnippet.vim'
 "Plug 'Shougo/neosnippet-snippets'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -58,7 +61,17 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jdkanani/vim-material-theme'
 Plug 'mhinz/neovim-remote'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
+
+"ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 
 autocmd TermOpen * setlocal norelativenumber
 autocmd TermOpen * setlocal nonumber
