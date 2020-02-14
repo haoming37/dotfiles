@@ -7,7 +7,7 @@
 #    chmod +x $INSTALL_PATH
 #fi
 sudo apt-add-repository -y ppa:neovim-ppa/stable
-sudo apt-get update && sudo apt-get install neovim
+sudo apt-get update && sudo apt-get -y install neovim
 
 if ! cat $HOME/.bashrc|grep XDG_CONFIG_HOME >/dev/null;then
     echo "export XDG_CONFIG_HOME=$HOME/config" >>$HOME/.bashrc
@@ -19,12 +19,22 @@ if [ ! -e $XDG_CONFIG_HOME/nvim ]; then
 fi
 
 if [ ! -e $HOME/.cache/dein/userconfig ]; then
-    mkdir -p $HOME/.cache/dein/userconfig 
+    mkdir -p $HOME/.cache/dein/userconfig
 fi
 
-ln -s ${PWD}/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+if [ ! -e $HOME/.cache/tmp ]; then
+    mkdir -p  $HOME/.cache/tmp
+fi
+
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+curl -fLo "$XDG_CONFIG_HOME/nvim/init.vim" --create-dirs \
+    https://raw.githubusercontent.com/haoming37/dotfiles/master/nvim/init.vim
+
+
+
+nvim +PlugInstall +qall
 
 #install dein
 #curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
